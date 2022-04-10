@@ -1,3 +1,7 @@
+html, body { margin:0px; }
+#coop { }
 #basket {  display: inline; }
 .hide { display: none; }
 .show { display: inline; }
+
+#chicken, #basket .bb { cursor: grab; }

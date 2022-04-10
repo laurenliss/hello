@@ -1,28 +1,32 @@
 var _eggs = 0;
+var colors = ['salmon', 'pink', 'coral','gold', 'plum', 'orange', 'khaki', 'olive', 'teal','black'];
+
+
 function camefirst(){
 
-	// there is a white chicken and a white egg on this page.
+	// some transition on the background?!
+
+	// there is a chicken and an egg on this page.
 	var thisone = document.getElementById("egg0");
 	var thatone = document.getElementById("chicken");
-	//setFill(thisone, "white");
-	setFill(thatone, "white");
-	thisone.setAttribute("class", "hide")
+	thisone.setAttribute("class", "hide");
+	thatone.setAttribute("class", "hide");
 
 	// which one should we show first? It is a coin toss
 	which = Math.floor(Math.random() * 2);
 	if(which == 1){
 		// it is the chicken.
 		setFill(thatone, "black");
+		thatone.setAttribute("class", "show");
 	} else {
 		// it is the egg.
 		thisone.setAttribute("class", "show");
 	}
+
 }
 
 // if there is a chicken, we can lay an egg
 function lay(){
-	// stop the pinata effect
-	nopinata();
 	// quick what color is the chicken?
 	_currentFill = document.getElementById("chicken").getAttribute("fill");
 	// make a new egg
@@ -30,33 +34,35 @@ function lay(){
 	var eggcount = _eggs++;
 	newegg.setAttribute("class", "show");
 	newegg.id = "egg" + _eggs;
-	newegg.setAttribute("class", _currentFill);
+	newegg.setAttribute("class", "bb " + _currentFill);
   document.getElementById('basket').prepend(newegg);
 	// make it the same color as the chicken
 	setFill(newegg,_currentFill);
+	// could these have rando pattern fills like easter eggs?
 
 }
 
 // if there is an egg, we can break it
 function crack(what){
+	// play the note associated to the color
 	var colornote = what.getAttribute("class");
 	play(colornote);
-	what.setAttribute("class", "hide"); // delete until
-	// show the cracked egg in place of the current egg
+	// bye bye little egg
+	what.setAttribute("class", "hide"); // delete
 }
 
-function play(who) {
-	var audio = document.getElementById(who);
-	audio.play();
-}
+
+// END OF THE CHICKEN AND EGG BUSINESS //
+// HERE ARE THE NUTS AND BOLTS				 //
+
 
 // change any SVG color
 function setFill(who, color){
 	who.setAttribute("fill", color);
 }
 
+// the pinata effect
 let intv;
-
 function pinata() {
   if (!intv) {
     intv = setInterval(swap, 300);
@@ -64,14 +70,62 @@ function pinata() {
 }
 
 function swap() {
-	var colors = ['salmon', 'pink', 'coral','gold', 'plum', 'orange', 'khaki', 'olive', 'teal','black'];
 	var who = document.getElementById("chicken");
 	var _currentFill = colors[Math.floor(Math.random() * colors.length)];
 	who.setAttribute("fill", _currentFill)
 }
 
+// start a 5 second timer to pinata effect
+setTimeout(function() {
+	pinata();
+}, 5000);
+
 function nopinata() {
+	// no having fun here.
   clearInterval(intv);
-  // release our intervalID from the variable
   intv = null;
+}
+
+// These notes are all generated in the moment thanks to this awesome
+// bit of code from Keith Wohr: https://keithwhor.github.io/audiosynth/
+
+Synth instanceof AudioSynth; // true
+var notes = Synth.createInstrument('piano');
+Synth.setSampleRate(20000);
+Synth.setVolume(0.5517); // 5517 is Liss upside down on a calculator
+
+// play the note associated to the color
+function play(who) {
+	// a switch statement! how novel.
+	switch(who) {
+	  case "teal":
+			notes.play('D#', 2, .5);
+	    break;
+	  case "salmon":
+			notes.play('E', 2, .5);
+	    break;
+		case "gold":
+			notes.play('E', 1, .5);
+			break;
+		case "pink":
+			notes.play('G', 1, .5);
+			break;
+		case "coral":
+			notes.play('A', 1, .5);
+			break;
+		case "plum":
+			notes.play('E', 3, .5);
+			break;
+		case "orange":
+			notes.play('D#', 4, .5);
+			break;
+		case "khaki":
+			notes.play('E', 4, .5);
+			break;
+		case "olive":
+			notes.play('A#', 1, .5);
+			break;
+	  default:
+			notes.play('C', 4, .5);
+	}
 }
