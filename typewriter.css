@@ -1,11 +1,60 @@
 /* typewriter 2022 */
+
+* {
+  box-sizing: border-box;
+}
+
+.grid-container, .footer-container {
+  display: grid;
+	grid-template-columns: auto auto;
+}
+
+.grid-container .grid-container {
+  display: grid;
+	grid-template-columns: auto auto auto;
+}
+footer .grid-container .grid-container {
+  display: grid;
+	grid-template-columns: auto auto;
+}
+
+.grid-item {
+	padding: 5%;
+}
+
+.ctr { text-align: center; margin: 25px auto; }
+.yellow , .hover-yellow:hover , a:hover {
+    color: #000!important;
+    background-color: #ffeb3b!important;
+}
+
+.white , .hover-white:hover {
+    color: #000!important;
+    background-color: #fff!important;
+}
+
+.black , .hover-black:hover {
+    color: #fff!important;
+    background-color: #000!important;
+}
+
 footer { padding: 25px; }
 hr { border-top: 1px dashed black; }
-.w3-yellow.w3-cell { padding: 50px; }
-.w3-yellow h1 { margin-top: 50px; }
-.w3-white.w3-cell p { font-size: 125%; }
-.bye { text-align: center; font-family: "Bodoni Moda", "Bodoni MT",Didot,serif;}
 
+
+#home .yellow h1 { margin-top: 10%; }
+#home .white p { font-size: 125%; }
+
+#decks .grid-item.black { border: 10px solid white; padding: 10px;  }
+#decks .grid-item .grid-item.black a { font-family: "Bodoni Moda", "Bodoni MT",Didot,serif; font-size: 26px; }
+
+#play .grid-item .grid-container { display: block; }
+#play .grid-item .grid-item.yellow { border-left: 10px black double; border-bottom: 10px black double; margin: 25px 0 0 0; }
+#play .grid-item .grid-item.yellow a { font-family: "Bodoni Moda", "Bodoni MT",Didot,serif; font-size: 24px; }
+#play .bye { border: 10px black double; margin: 0; padding-top: 25px; text-align: center; }
+
+.bye { text-align: center; font-family: "Bodoni Moda", "Bodoni MT",Didot,serif;}
+.hmu { text-align: right; color: #fff!important; background-color: #000!important; border: 5px solid #fff; padding: 5px; font-family: "Bodoni Moda", "Bodoni MT",Didot,serif; }
 
 /* typewriter by Geoff Graham https://css-tricks.com/snippets/css/typewriter-effect/ */
 .typewriter h2 {
