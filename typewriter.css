@@ -3,7 +3,7 @@
 * {
   box-sizing: border-box;
 }
-
+@media (min-width:601px){
 .grid-container, .footer-container {
   display: grid;
 	grid-template-columns: auto auto;
@@ -17,7 +17,7 @@ footer .grid-container .grid-container {
   display: grid;
 	grid-template-columns: auto auto;
 }
-
+}
 .grid-item {
 	padding: 5%;
 }
