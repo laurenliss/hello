@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+@import 'w3.css';
+
+body, html {
+	background-image: url('assets/no-bg.gif');
+}
+h1,h2,h3,h4,h5,h6 { font-family: "Poppins", sans-serif; font-style: normal;}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (min-width:601px){
+.grid-container, .footer-container {
+  display: grid;
+	grid-template-columns: auto auto;
+}
+
+.grid-container .grid-container {
+  display: grid;
+	grid-template-columns: auto auto auto;
+}
+footer .grid-container .grid-container {
+  display: grid;
+	grid-template-columns: auto auto;
+}
+}
+
+.box {
+	padding: 10px;
+	margin: 20px;
+	background-color: #fff;
+}
+
+.biggen { font-size: 125%; }
+.blue { color: #446AF2; }
+
+
+
+.ctr { text-align: center; margin: 25px auto; }
+.yellow , .hover-yellow:hover , a:hover {
+    color: #000!important;
+    background-color: #ffeb3b!important;
+}
+
+.white , .hover-white:hover {
+    color: #000!important;
+    background-color: #fff!important;
+}
+
+.black , .hover-black:hover {
+    color: #fff!important;
+    background-color: #000!important;
+}
+
+footer { padding: 25px; }
+hr { border-top: 1px dashed black; }
+
+
+#home .yellow h1 { margin-top: 10%; }
+#home .white p { font-size: 125%; }
+
+#decks .grid-item.black { border: 10px solid white; padding: 10px;  }
+#decks .grid-item .grid-item.black a { font-family: "Corben",serif; font-size: 26px; }
+
+#play .grid-item .grid-container { display: block; }
+#play .grid-item .grid-item.yellow { border-left: 10px black double; border-bottom: 10px black double; margin: 25px 0 0 0; }
+#play .grid-item .grid-item.yellow a { font-family: "Bodoni Moda", "Bodoni MT",Didot,serif; font-size: 24px; }
+#play .bye { border: 10px black double; margin: 0; padding-top: 25px; text-align: center; }
+
+#about h3 { font-size: 24px; }
+
+.bye { text-align: center; font-family: "Bodoni Moda", "Bodoni MT",Didot,serif;}
+.hmu { text-align: right; color: #fff!important; background-color: #000!important; border: 5px solid #fff; padding: 5px; font-family: "Bodoni Moda", "Bodoni MT",Didot,serif; }
+
+/* typewriter by Geoff Graham https://css-tricks.com/snippets/css/typewriter-effect/ */
+.typewriter h2 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid black; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0; /* Gives that scrolling effect as the typing happens */
+  animation:
+    typing 1.5s steps(20, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
