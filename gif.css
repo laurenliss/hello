@@ -2,28 +2,26 @@
 @import 'w3.css';
 
 body, html {
-	background-image: url('no-bg.gif');
+	background-image: url('assets/no-bg.gif');
 }
-h1,h2,h3,h4,h5,h6 { font-family: "Poppins", sans-serif; font-style: normal;}
+h1,h2,h3,h4,h5,h6 {
+	font-family: "Poppins", sans-serif; font-style: normal;
+}
 
+li::marker {
+	font-family: "Poppins", sans-serif; font-style: normal;
+	font-weight: bold;
+	font-size: 150%;
+	color: #446AF2;
+}
 * {
   box-sizing: border-box;
 }
 
-@media (min-width:601px){
-.grid-container, .footer-container {
+.grid-container {
   display: grid;
-	grid-template-columns: auto auto;
-}
-
-.grid-container .grid-container {
-  display: grid;
-	grid-template-columns: auto auto auto;
-}
-footer .grid-container .grid-container {
-  display: grid;
-	grid-template-columns: auto auto;
-}
+  grid-template-columns: auto auto auto;
+  margin-bottom: 64px;
 }
 
 .box {
@@ -32,12 +30,20 @@ footer .grid-container .grid-container {
 	background-color: #fff;
 }
 
-.biggen { font-size: 125%; }
-.blue { color: #446AF2; }
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0; 
 
+}
+.footer p {
+  text-align: center; padding: 20px;
+}
 
+.blue {
+	color: #446AF2;
+}
 
-.ctr { text-align: center; margin: 25px auto; }
 .yellow , .hover-yellow:hover , a:hover {
     color: #000!important;
     background-color: #ffeb3b!important;
@@ -53,28 +59,8 @@ footer .grid-container .grid-container {
     background-color: #000!important;
 }
 
-footer { padding: 25px; }
-hr { border-top: 1px dashed black; }
-
-
-#home .yellow h1 { margin-top: 10%; }
-#home .white p { font-size: 125%; }
-
-#decks .grid-item.black { border: 10px solid white; padding: 10px;  }
-#decks .grid-item .grid-item.black a { font-family: "Corben",serif; font-size: 26px; }
-
-#play .grid-item .grid-container { display: block; }
-#play .grid-item .grid-item.yellow { border-left: 10px black double; border-bottom: 10px black double; margin: 25px 0 0 0; }
-#play .grid-item .grid-item.yellow a { font-family: "Bodoni Moda", "Bodoni MT",Didot,serif; font-size: 24px; }
-#play .bye { border: 10px black double; margin: 0; padding-top: 25px; text-align: center; }
-
-#about h3 { font-size: 24px; }
-
-.bye { text-align: center; font-family: "Bodoni Moda", "Bodoni MT",Didot,serif;}
-.hmu { text-align: right; color: #fff!important; background-color: #000!important; border: 5px solid #fff; padding: 5px; font-family: "Bodoni Moda", "Bodoni MT",Didot,serif; }
-
 /* typewriter by Geoff Graham https://css-tricks.com/snippets/css/typewriter-effect/ */
-.typewriter h2 {
+.typewriter h1 {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .15em solid black; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
@@ -94,4 +80,14 @@ hr { border-top: 1px dashed black; }
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: black; }
+}
+
+/* The smaller screen */
+@media (max-width:599px){
+	.grid-container{
+	  display: grid;
+		grid-template-columns: auto;
+	}
+
+
 }
