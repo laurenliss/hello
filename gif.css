@@ -2,7 +2,7 @@
 @import 'w3.css';
 
 body, html {
-	background-image: url('assets/no-bg.gif');
+	background-image: url('no-bg.gif');
 }
 h1,h2,h3,h4,h5,h6 {
 	font-family: "Poppins", sans-serif; font-style: normal;
